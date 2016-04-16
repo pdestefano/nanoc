@@ -74,4 +74,14 @@ class Nanoc::FilterTest < Nanoc::TestCase
     # Check filename
     assert_equal('?', filter.filename)
   end
+
+  def test_define
+    Nanoc::Filter.define(:donkey19468313) do
+      def run(content, params = {})
+        content.upcase
+      end
+    end
+
+    # refute_nil Nanoc::Filter.named(:donkey19468313)
+  end
 end
